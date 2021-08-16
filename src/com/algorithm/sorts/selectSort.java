@@ -17,6 +17,7 @@ import java.util.Arrays;
 选择排序是稳定的算法，它满足稳定算法的定义。
 算法稳定性 -- 假设在数列中存在a[i]=a[j]，若在排序之前，a[i]在a[j]前面；并且排序之后，a[i]仍然在a[j]前面。则这个排序算法是稳定的！
 * */
+
 public class selectSort {
     public static void main(String[] args) {
         int[] arr = {20,40,30,10,60,50};
