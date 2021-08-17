@@ -1,4 +1,5 @@
 package com.algorithm.sorts;
+
 /*
 * 冒泡排序(Bubble Sort)，又被称为气泡排序或泡沫排序。
 
@@ -24,7 +25,7 @@ package com.algorithm.sorts;
 * */
 public class bubbleSort {
     public static void main(String[] args) {
-        int[] arr = {4,5,1,2,3,9,10};
+        int[] arr = {4, 5, 1, 2, 3, 9, 10};
         BubbleSort(arr);
         for (int i : arr) {
             System.out.println(i);
@@ -49,11 +50,9 @@ public class bubbleSort {
                     flag = 1; //若发生交换，则标记为1
                 }
             }
-
             if (flag == 0)
                 break;     //若没发生交换，则说明数列已有序
         }
     }
-
 
 }
