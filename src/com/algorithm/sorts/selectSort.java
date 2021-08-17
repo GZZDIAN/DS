@@ -20,7 +20,7 @@ import java.util.Arrays;
 
 public class selectSort {
     public static void main(String[] args) {
-        int[] arr = {20,40,30,10,60,50};
+        int[] arr = {20, 40, 30, 10, 60, 50};
         SelectSort(arr);
         for (int i : arr) {
             System.out.println(i);
