@@ -27,34 +27,66 @@ public class quickSort {
 (2) 为什么最多是N次？这个应该非常简单，还是将快速排序看作一棵二叉树，它的深度最大是N。因此，快读排序的遍历次数最多是N次。
     * */
 
-    public static void QuickSort(int[] arr, int l, int r) {
-        if (l < r) {
-            int i, j, x;
-
-            i = l;
-            j = r;
-            x = arr[i];
-            while (i < j) {
-                while (i < j && arr[j] > x)
-                    j--;        //从右向左找到第一个小于x的数
-
-                if (i < j)
-                    arr[i++] = arr[j];
-
-
-                while (i < j && arr[i] < x)
-                    i++;        //从左向右找到第一个大于x的数
-
-                if (i < j)
-                    arr[j--] = arr[i];
-
-            }
-            arr[i] = x;
-            QuickSort(arr, l, i - 1);
-            QuickSort(arr, i + 1, r);
-
+    public static void main(String[] args) {
+        int[] arr = {5,2,1,4,3,10};
+        int[] nums = sortArray(arr);
+        for (int num : nums) {
+            System.out.println(num);
         }
     }
+    public static int[] sortArray(int[] nums) {
+        quickSort(nums);
+        return nums;
+    }
 
+    public static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
+    }
+
+    public static void quickSort(int[] arr, int start, int end) {
+        // 如果区域内的数字少于 2 个，退出递归
+        if (start >= end) return;
+        // 将数组分区，并获得中间值的下标
+        int middle = partition(arr, start, end);
+        // 对左边区域快速排序
+        quickSort(arr, start, middle - 1);
+        // 对右边区域快速排序
+        quickSort(arr, middle + 1, end);
+    }
+
+    // 将 arr 从 start 到 end 分区，左边区域比基数小，右边区域比基数大，然后返回中间值的下标
+    public static int partition(int[] arr, int start, int end) {
+        // 取第一个数为基数
+        int pivot = arr[start];
+        // 从第二个数开始分区
+        int left = start + 1;
+        // 右边界
+        int right = end;
+        // left、right 相遇时退出循环
+        while (left < right) {
+            // 找到第一个大于基数的位置
+            while (left < right && arr[left] <= pivot)
+                left++;
+            // 交换这两个数，使得左边分区都小于或等于基数，右边分区大于或等于基数
+            if (left != right) {
+                exchange(arr, left, right);
+                right--;
+            }
+        }
+        // 如果 left 和 right 相等，单独比较 arr[right] 和 pivot
+        if (left == right && arr[right] > pivot)
+            right--;
+        // 将基数和中间数交换
+        if (right != start)
+            exchange(arr, start, right);
+        // 返回中间值的下标
+        return right;
+    }
+
+    private static void exchange(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 
 }
