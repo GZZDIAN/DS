@@ -32,7 +32,7 @@ public class selectSort {
         int j;     //无序区的起始位置
         int minPos;   //无序区中最小元素位置
         int temp;    //用来交换变量
-        for (i = 0; i < arr.length; i++) {
+        for (i = 0; i < arr.length - 1; i++) {
             minPos = i;
             for (j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[minPos]) {
