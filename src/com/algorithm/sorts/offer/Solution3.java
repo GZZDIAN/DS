@@ -12,7 +12,11 @@ package com.algorithm.sorts.offer;
  * 输出: 5
  */
 public class Solution3 {
-    public int findKthLargest(int[] nums, int k) {
+    public static void main(String[] args) {
+        int[] nums = {3,2,1,5,6,4};
+        findKthLargest(nums,2);
+    }
+    public static int findKthLargest(int[] nums, int k) {
         int temp;
         int maxIndex;
         // 执行 k 次选择
