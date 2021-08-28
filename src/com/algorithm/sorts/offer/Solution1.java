@@ -28,7 +28,7 @@ public class Solution1 {
         boolean swapped = true;
         // 最后一个没有经过排序的元素的下标
         int indexOfLastUnsortedElement = arr.length - 1;
-        // 上次发生交换的位置
+        // 上次发生交换的位置:因为交换了之后会改变之前的大小判断，需要重新判断到交换值的位置
         int swappedIndex = -1;
         int temp;
         while (swapped) {
@@ -51,5 +51,6 @@ public class Solution1 {
 
 
     }
+
 
 }
