@@ -1,5 +1,7 @@
 package com.algorithm.execrise;
 
+import java.util.Arrays;
+
 /**
  * 给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 最多出现两次 ，返回删除后数组的新长度。
  *
@@ -16,6 +18,7 @@ public class Solution {
     public static void main(String[] args) {
         int[] nums = {1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3};
         removeDuplicates(nums);
+        System.out.println(Arrays.toString(nums));
     }
     public static int removeDuplicates(int[] nums) {
         return process(nums, 2);
