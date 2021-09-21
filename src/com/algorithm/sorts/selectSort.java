@@ -18,36 +18,30 @@ import java.util.Arrays;
 算法稳定性 -- 假设在数列中存在a[i]=a[j]，若在排序之前，a[i]在a[j]前面；并且排序之后，a[i]仍然在a[j]前面。则这个排序算法是稳定的！
 * */
 
+
 public class selectSort {
     public static void main(String[] args) {
-        int[] arr = {20, 40, 30, 10, 60, 50};
+        int[] arr = { 20, 40, 30, 10, 60, 50 };
         SelectSort(arr);
-        for (int i : arr) {
-            System.out.println(i);
-        }
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void SelectSort(int[] arr) {
-        int i;     //有序区的末尾位置
-        int j;     //无序区的起始位置
-        int minPos;   //无序区中最小元素位置
-        int temp;    //用来交换变量
-        for (i = 0; i < arr.length - 1; i++) {
-            minPos = i;
-            for (j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[minPos]) {
-                    minPos = j;
-                }
-            }
-
-            //若minPos!=i,则交换arr[i]和arr[minPos]
-            //交换之后，保证了arr[0] ... arr[i]之间的元素是有序的
-            if (minPos != i) {
-                temp = arr[minPos];
-                arr[minPos] = arr[i];
-                arr[i] = temp;
-            }
+        if (arr == null || arr.length < 2) {
+            return;
         }
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                minIndex = arr[j] < arr[minIndex] ? j : minIndex;
+            }
+            swap(arr, i, minIndex);
+        }
+    }
 
+    public static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = tmp;
     }
 }
